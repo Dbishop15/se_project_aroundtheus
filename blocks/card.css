@@ -1,8 +1,15 @@
 .card {
+  height: 361px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffff;
+  color: #000;
+}
+.card:hover {
+  border: 2px solid blue;
 }
 .card__image {
   width: 282px;
@@ -13,18 +20,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px;
+  margin: 25px 20px;
 }
 .card__title {
-  max-width: 220px;
-  text-align: left;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: "Inter Black", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
 }
 .card__like-button {
+  background: url("../images/like-icon.svg") center no-repeat;
+  margin: 0;
   width: 21px;
   height: 18px;
-  background-color: transparent;
+  border: none;
+}
+.card__button {
+  background: transparent url(../images/heart\ icon.svg) center no-repeat;
+  height: 18px;
+  width: 21px;
+  border: none;
+}
+.card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
