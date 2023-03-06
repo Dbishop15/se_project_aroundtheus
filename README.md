@@ -18,6 +18,7 @@ A gallery of various landmarks throughout the United States. This project is mad
 The way the project works is by exporting images directly from Figma and optimizing them [here](https://tinypng.com/), so the project loads faster.
 
 **Images here is an example of finished webpage on dektop and mobile**
+
 <img
   src="/images/screen320px.png"
   alt="finshed webpage on desktop and mobile.png"
