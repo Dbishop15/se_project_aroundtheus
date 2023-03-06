@@ -19,13 +19,13 @@ The way the project works is by exporting images directly from Figma and optimiz
 
 **Images here is an example of finished webpage on dektop and mobile**
 <img
-  src="/images/screen1280px.png"
+  src="/images/screen320px.png"
   alt="finshed webpage on desktop and mobile.png"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  style="display: inline-block; margin: 0 auto; max-width: 150px">
 <img
   src="/images/finshed webpage on desktop and mobile.png"
   alt="finshed webpage on desktop and mobile.png"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  style="display: inline-block; margin: 0 auto; max-width: 150px">
 ### GitHub Pages link
 
 [Link to Live Website] https://dbishop15.github.io/se_project_aroundtheus/
