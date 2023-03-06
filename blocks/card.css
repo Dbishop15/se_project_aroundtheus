@@ -1,5 +1,4 @@
 .card {
-  height: 361px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -7,9 +6,6 @@
   justify-content: space-between;
   background-color: #ffff;
   color: #000;
-}
-.card:hover {
-  border: 2px solid blue;
 }
 .card__image {
   width: 282px;
@@ -27,7 +23,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: "Inter Black", Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
   font-size: 24px;
   line-height: 29px;
 }
@@ -36,12 +33,6 @@
   margin: 0;
   width: 21px;
   height: 18px;
-  border: none;
-}
-.card__button {
-  background: transparent url(../images/heart\ icon.svg) center no-repeat;
-  height: 18px;
-  width: 21px;
   border: none;
 }
 .card__like-button:hover {

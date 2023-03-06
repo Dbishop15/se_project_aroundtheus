@@ -2,13 +2,19 @@
   margin-top: 45px;
   padding-bottom: 41px;
   background-color: black;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 .header__logo {
   width: 173px;
   height: 33px;
 }
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 1024px) {
+  .header {
+    margin-left: 27px;
+    margin-right: 27px;
+  }
+}
+@media screen and (max-width: 470px) {
   .header {
     margin-top: 28px;
     margin-left: 0;
@@ -17,11 +23,5 @@
     margin-left: 27px;
     width: 126px;
     height: 24px;
-  }
-}
-@media screen and (min-width: 545px) and (max-width: 1024px) {
-  .header {
-    margin-left: 27px;
-    margin-right: 27px;
   }
 }

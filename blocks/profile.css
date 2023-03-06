@@ -23,14 +23,16 @@
 .profile__title {
   margin: 0;
   padding: 0;
-  font-family: "Inter Medium", Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 500;
   font-size: 42px;
   line-height: 48px;
 }
 .profile__subtitle {
   margin: 16px 0 0;
   padding: 0;
-  font-family: "Inter Regular", Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
 }
@@ -39,13 +41,12 @@
   height: 24px;
   background: url(../images/pen.svg) center no-repeat;
   background-color: transparent;
-  border: 2px solid #ffffff;
-  border-radius: 2px;
+  border: 1px solid #ffffff;
   margin-left: 18px;
   vertical-align: middle;
 }
 .profile__edit-button:hover {
-  border-color: blue;
+  opacity: 0.6;
   cursor: pointer;
 }
 .profile__add-button {
@@ -57,12 +58,30 @@
   border-radius: 2px;
 }
 .profile__add-button:hover {
-  border-color: blue;
+  opacity: 0.6;
   cursor: pointer;
 }
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 1024px) {
   .profile {
-    display: flex;
+    margin: 38.25px 27px auto;
+  }
+  .profile__title {
+    font-size: 36px;
+    line-height: 44.64px;
+  }
+}
+@media screen and (max-width: 721px) {
+  .profile__title {
+    font-size: 32px;
+    line-height: 39.68px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 150px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .profile {
     flex-direction: column;
     justify-content: center;
     margin: 38.25px 19px 36px;
@@ -73,10 +92,6 @@
     justify-content: center;
     margin-bottom: 36px;
   }
-  .profile__image {
-    width: 120px;
-    height: 120px;
-  }
   .profile__info {
     text-align: center;
     margin-top: 26.25px;
@@ -85,6 +100,7 @@
   .profile__title {
     font-size: 22px;
     line-height: 27px;
+    max-width: 282px;
   }
   .profile__edit-button {
     width: 18px;
@@ -97,15 +113,6 @@
   }
   .profile__add-button {
     width: 282px;
-    height: 50px;
-  }
-}
-@media screen and (min-width: 545px) and (max-width: 1024px) {
-  .profile {
-    margin: 38.25px 27px auto;
-  }
-  .profile__title {
-    font-size: 36px;
-    line-height: 44.64px;
+    flex-shrink: 0;
   }
 }
