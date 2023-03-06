@@ -20,6 +20,10 @@
   margin-left: 30px;
   padding: 0;
 }
+.profile__title-edit {
+  display: flex;
+  align-items: center;
+}
 .profile__title {
   margin: 0;
   padding: 0;
@@ -27,6 +31,9 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .profile__subtitle {
   margin: 16px 0 0;
@@ -43,7 +50,6 @@
   background-color: transparent;
   border: 1px solid #ffffff;
   margin-left: 18px;
-  vertical-align: middle;
 }
 .profile__edit-button:hover {
   opacity: 0.6;
@@ -72,12 +78,7 @@
 }
 @media screen and (max-width: 721px) {
   .profile__title {
-    font-size: 32px;
-    line-height: 39.68px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 150px;
+    max-width: 140px;
   }
 }
 @media screen and (max-width: 470px) {
