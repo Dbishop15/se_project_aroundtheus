@@ -19,7 +19,7 @@ The way the project works is by exporting images directly from Figma and optimiz
 
 **Images here is an example of finished webpage on dektop and mobile**
 <img
-  src="/images/screen1280.png"
+  src="/images/screen1280px.png"
   alt="finshed webpage on desktop and mobile.png"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
 <img
