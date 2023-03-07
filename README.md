@@ -2,10 +2,10 @@
 
 ## Overview
 
-Intro
-Figma
-Images
-Fonts
+-Intro
+-Figma
+-Images
+-Fonts
 
 **Intro**
 This project called "Around The U.S.". A gallery of various landmarks throughout the United States. The project is made so all the elements are displayed correctly on popular screen sizes. Also creating page design of adding and removing photos button, and like photos of other users.
