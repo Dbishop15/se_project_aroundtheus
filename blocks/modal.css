@@ -27,13 +27,12 @@
   position: absolute;
   top: -40px;
   right: -40px;
+  background: url(../images/Iconclose.svg) center no-repeat;
+  background-color: transparent;
   margin: 0;
   padding: 0;
-  width: 40.7px;
-  height: 40.7px;
-  font-size: 40.7px;
-  text-decoration: none;
-  color: #ffffff;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 .close:hover {
@@ -105,11 +104,9 @@
     height: 322px;
   }
   .close {
-    top: -40px;
-    right: 0;
+    right: 10px;
     width: 26px;
     height: 26px;
-    font-size: 26px;
   }
   .modal__title {
     max-width: 238px;
