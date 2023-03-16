@@ -1,0 +1,143 @@
+.modal_opened {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: none;
+  justify-content: center;
+}
+.modal:target {
+  display: flex;
+  opacity: 1;
+}
+.modal__container {
+  max-width: 430px;
+  height: 330px;
+  padding: 0px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  margin: 0;
+  padding: 0;
+  width: 40.7px;
+  height: 40.7px;
+  font-size: 40.7px;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 0.6;
+}
+.modal__title {
+  max-width: 330px;
+  padding-top: 34px;
+  margin-left: 36px;
+  margin-bottom: 54px;
+  margin-top: 0;
+  color: #000000;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+.modal__content {
+  max-width: 430px;
+  overflow: auto;
+  border-radius: 5px;
+  padding: 0;
+}
+.modal__form {
+  max-width: 430px;
+  margin-left: 36px;
+  margin-right: 36px;
+  padding: 0;
+}
+.modal__input {
+  width: 358px;
+  height: 27.3px;
+  margin-bottom: 29.74px;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.modal__input:nth-last-of-type(2) {
+  margin-bottom: 0;
+}
+.modal__submit {
+  width: 358px;
+  height: 50.15px;
+  margin-top: 48px;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 36.51px;
+}
+.modal__submit:hover {
+  opacity: 0.8;
+}
+@media screen and (max-width: 470px) {
+  .modal__container {
+    max-width: 282px;
+    height: 322px;
+  }
+  .close {
+    top: -40px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    font-size: 26px;
+  }
+  .modal__title {
+    max-width: 238px;
+    padding-top: 25px;
+    margin-left: 22px;
+    margin-bottom: 76px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .modal__content {
+    max-width: 282px;
+  }
+  .modal__form {
+    max-width: 238px;
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  .modal__input {
+    width: 238px;
+    height: 26px;
+    margin-bottom: 30px;
+  }
+  .modal__submit {
+    width: 238px;
+    height: 46px;
+    margin-top: 46px;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 25px;
+  }
+}
