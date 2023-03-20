@@ -36,11 +36,11 @@
             <div class="profile__info">
               <div class="profile__title-info">
                 <h1 class="profile__title">Jacques Cousteau</h1>
-                <a
+                <button
                   class="profile__edit-button"
+                  id="edit-profile"
                   aria-label="Edit"
-                  href="#diveOne"
-                ></a>
+                ></button>
               </div>
               <p class="profile__subtitle">Explorer</p>
             </div>
@@ -51,19 +51,24 @@
             aria-label="Add"
           ></button>
         </section>
-        <section class="modal modal_opened" id="diveOne">
+        <section class="modal" id="edit-modal">
           <div class="modal__container">
-            <a href="#" class="close"></a>
-            <h2 class="modal__title">Edit profile</h2>
+            <button class="modal__close" id="close-modal"></button>
+            <h2 class="modal__heading">Edit profile</h2>
             <div class="modal__content">
               <form class="modal__form">
-                <input class="modal__input" type="text" placeholder="Name" />
+                <input
+                  class="modal__input"
+                  type="text"
+                  name="title"
+                  placeholder="Name"
+                />
                 <input
                   class="modal__input"
                   type="text"
                   placeholder="Description"
                 />
-                <input class="modal__submit" type="submit" value="Save" />
+                <button class="modal__submit" type="submit">Save</button>
               </form>
             </div>
           </div>
