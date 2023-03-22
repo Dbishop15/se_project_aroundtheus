@@ -1,4 +1,4 @@
-# Project 3: Around The U.S.
+# Project 4: Around The U.S.
 
 ## Overview
 
@@ -6,6 +6,10 @@
 - Figma
 - Images
 - Fonts
+- Javascript and array
+- Modal Box
+- The DOM
+- Adding functional to the modal box
 
 **Intro**
 
@@ -41,6 +45,21 @@ All fonts used in this project are from the Inter family, which you can download
   src="/images/finshed webpage on desktop and mobile.png"
   alt="finshed webpage on desktop and mobile.png"
   style="display: inline-block; margin: 0 auto; max-width: 150px">
+
+**Javascript and array**
+
+Creating a .js file for index.html page. Cretat an array and store it in the variable. Inserting data into HTML using JavaScript. Adding a script file to project and cretating an array with the card data.
+
+**Modal Box**
+
+Creating a modal box with HTML and CSS. Write the markup and styles for the "Edit profile" modal box for both desktop and mobile. It has two fields, titled "Name" and "About me", and buttons to submit and close the form.
+
+**The DOM**
+Implementing the opening and closing of the modal box by adding functions to the project by using the DOM.
+
+**Adding some final functionality to the modal box**
+
+Once the form has been opened, the "Name" and "About me" fields be filled in with the values. Once the user enters new information and clicks on the "Save" button, the page has to update to reflect the changes made, with the modal closing simultaneously. Also making the cards render from the array.
 
 ### GitHub Pages link
 

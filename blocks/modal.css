@@ -38,7 +38,7 @@
 .modal__close:hover {
   opacity: 0.6;
 }
-.modal__heading {
+.modal__title {
   max-width: 330px;
   height: 23px;
   padding-top: 34px;
@@ -58,10 +58,8 @@
   padding: 0;
 }
 .modal__form {
-  max-width: 430px;
   margin-left: 36px;
   margin-right: 36px;
-  padding: 0;
 }
 .modal__input {
   width: 358px;
@@ -100,6 +98,9 @@
 .modal__submit:hover {
   opacity: 0.8;
 }
+.modal_visible {
+  visibility: visible;
+}
 @media screen and (max-width: 470px) {
   .modal__container {
     max-width: 282px;
@@ -111,7 +112,7 @@
     height: 26px;
     background-size: 80%;
   }
-  .modal__heading {
+  .modal__title {
     max-width: 238px;
     padding-top: 25px;
     margin-left: 22px;
@@ -135,7 +136,7 @@
   .modal__submit {
     width: 238px;
     height: 46px;
-    margin-top: 46px;
+    margin-top: 45px;
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 25px;
