@@ -9,7 +9,6 @@
 - Javascript and array
 - Modal Box
 - The DOM
-- Adding functional to the modal box
 
 **Intro**
 
@@ -55,11 +54,13 @@ Creating a .js file for index.html page. Cretat an array and store it in the var
 Creating a modal box with HTML and CSS. Write the markup and styles for the "Edit profile" modal box for both desktop and mobile. It has two fields, titled "Name" and "About me", and buttons to submit and close the form.
 
 **The DOM**
-Implementing the opening and closing of the modal box by adding functions to the project by using the DOM.
-
-**Adding some final functionality to the modal box**
 
 Once the form has been opened, the "Name" and "About me" fields be filled in with the values. Once the user enters new information and clicks on the "Save" button, the page has to update to reflect the changes made, with the modal closing simultaneously. Also making the cards render from the array.
+
+Implementing the opening and closing of the modal box by adding addEventListener() functions to the project.
+Adding the line with (evt.preventDefault()) in the submission handler tp prevent the default browser behavior.
+Rendering <template> elements with JavaScript.
+Adding Elements to the DOM.
 
 ### GitHub Pages link
 
