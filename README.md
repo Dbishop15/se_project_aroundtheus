@@ -1,4 +1,4 @@
-# Project 4: Around The U.S.
+# Project 5: Around The U.S.
 
 ## Overview
 
@@ -9,6 +9,13 @@
 - Javascript and array
 - Modal Box
 - The DOM
+- Rendering cards
+- Form for adding a card
+- Adding a card
+- The "Like" button
+- Deleting a card
+- Opening the picture modal
+- Smooth modal opening and closing
 
 **Intro**
 
@@ -61,6 +68,34 @@ Implementing the opening and closing of the modal box by adding addEventListener
 Adding the line with (evt.preventDefault()) in the submission handler tp prevent the default browser behavior.
 Rendering <template> elements with JavaScript.
 Adding Elements to the DOM.
+
+**Rendering cards**
+
+Rewriting the logic to iterate through the array of cards using a for loop by using the appropriate array method like forEach.
+
+**Form for adding a card**
+
+Adding a form for adding a new card to the project that can be opened once the user clicks on the "+" button, and be closed when the user clicks on the "Close" button.
+
+**Adding a card**
+
+The user can write a custom name for the card and add a link to a picture. Once the user clicks on the "Save" button, the new card must appear at the card container's beginning, with the form modal closing simultaneously. Connect the handler to the form to watch the submit event.
+
+**The "Like" button**
+
+If the user clicks on the "Like" button, the heart changes its color.
+
+**Deleting a card**
+
+Adding a delete icon to the cards. Then, the buttons work by writing the needed code.
+
+**Opening the picture modal**
+
+Once a user clicks on a picture, the modal box with that picture opens. When they click "Close," it closes.
+
+**Smooth modal opening and closing**
+
+Making the modal box look smooth when opening and closing. When being opened, all the modal boxes smoothly appear out from transparency, and when being closed, they smoothly become completely transparent again.
 
 ### GitHub Pages link
 

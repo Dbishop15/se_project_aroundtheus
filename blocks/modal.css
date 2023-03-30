@@ -7,9 +7,15 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 9;
   padding: 0 19px;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  display: flex;
 }
 .modal_opened {
+  visibility: visible;
+  transition-delay: 0.3s;
+  opacity: 1;
   display: flex;
 }
 .modal__container {
@@ -34,6 +40,8 @@
   height: 40px;
   border: none;
   cursor: pointer;
+  opacity: 1;
+  transition: ease-in-out 0.3s;
 }
 .modal__close:hover {
   opacity: 0.6;
@@ -101,6 +109,28 @@
   opacity: 0.8;
   transition: all 1s ease-out;
 }
+.modal__container-picture {
+  padding: 0px;
+  margin: auto;
+  position: relative;
+}
+.modal__picture {
+  max-width: 75vw;
+  max-height: 75vh;
+  padding: 0px;
+  margin: auto;
+  position: relative;
+}
+.modal__picuture-title {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 @media screen and (max-width: 470px) {
   .modal__container {
     max-width: 282px;

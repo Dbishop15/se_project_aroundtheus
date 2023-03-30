@@ -48,6 +48,7 @@
           <button
             class="profile__add-button"
             type="button"
+            id="add-profile"
             aria-label="Add"
           ></button>
         </section>
@@ -60,7 +61,7 @@
             ></button>
             <h2 class="modal__title">Edit profile</h2>
 
-            <form class="modal__form">
+            <form class="modal__form" id="edit-form">
               <input
                 class="modal__input modal__input_type_name"
                 type="text"
@@ -79,8 +80,51 @@
             </form>
           </div>
         </section>
+        <section class="modal" id="add-modal">
+          <div class="modal__container">
+            <button
+              class="modal__close"
+              id="close-add-modal"
+              type="button"
+            ></button>
+            <h2 class="modal__title">New place</h2>
+
+            <form class="modal__form" id="add-form">
+              <input
+                class="modal__input modal__input_type_title"
+                type="text"
+                name="title"
+                placeholder="Title"
+                required
+              />
+              <input
+                class="modal__input modal__input_type_image-link"
+                type="url"
+                name="image link"
+                placeholder="Image link"
+                required
+              />
+              <button class="modal__submit" type="submit">Create</button>
+            </form>
+          </div>
+        </section>
         <section class="gallery">
           <ul class="gallery__cards"></ul>
+        </section>
+        <section class="modal" id="picture-modal">
+          <div class="modal__container-picture">
+            <button
+              class="modal__close"
+              id="close-picture-modal"
+              type="button"
+            ></button>
+            <img
+              class="modal__picture"
+              src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg"
+              alt="Yosemite Valley"
+            />
+            <h3 class="modal__picuture-title">Yosemite Valley</h3>
+          </div>
         </section>
       </main>
       <footer class="footer">
@@ -90,6 +134,11 @@
     <template id="card-templete">
       <li class="card">
         <img class="card__image" src="" alt="" />
+        <button
+          class="card__delete-button"
+          type="button"
+          aria-label="Delete"
+        ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button

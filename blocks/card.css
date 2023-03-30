@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -11,6 +12,21 @@
   width: 282px;
   height: 282px;
   object-fit: cover;
+}
+.card__delete-button {
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background: url(../images/trash.svg) center no-repeat;
+  background-color: transparent;
+  border: none;
+}
+.card__delete-button:hover {
+  opacity: 0.6;
+  transition: all 1s ease-out;
+  cursor: pointer;
 }
 .card__description {
   display: flex;
@@ -37,5 +53,9 @@
 }
 .card__like-button:hover {
   opacity: 0.5;
+  transition: all 1s ease-out;
   cursor: pointer;
+}
+.card__like-button_active {
+  background: url(../images/like-active.svg);
 }
