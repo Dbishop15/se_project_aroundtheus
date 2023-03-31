@@ -27,18 +27,19 @@ const initialCards = [
 
 const editProfileButton = document.querySelector("#edit-profile");
 const addCardProfileButton = document.querySelector(".profile__add-button");
-const editModal = document.querySelector("#edit-modal");
-const addModal = document.querySelector("#add-modal");
-const imageModal = document.querySelector("#picture-modal");
+const editProfilePopup = document.querySelector("#edit-modal");
+const addProfilePopup = document.querySelector("#add-modal");
+const imageModalPopup = document.querySelector("#image-modal");
 const profileEditForm = document.querySelector("#edit-form");
 const profileAddForm = document.querySelector("#add-form");
-const closeEditModalButton = editModal.querySelector("#close-modal");
-const closeAddModalButton = addModal.querySelector("#close-add-modal");
-const closeImageModalButton = imageModal.querySelector("#close-picture-modal");
+const closeEditModalButton = editProfilePopup.querySelector("#close-modal");
+const closeAddModalButton = addProfilePopup.querySelector("#close-add-modal");
+const closeImageModalButton =
+  imageModalPopup.querySelector("#close-image-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
-const imagePicute = document.querySelector(".modal__picture");
-const imageTitle = document.querySelector(".modal__picuture-title");
+const imagePicute = document.querySelector(".modal__image");
+const imageTitle = document.querySelector(".modal__image-title");
 const inputName = document.querySelector(".modal__input_type_name");
 const inputDescription = document.querySelector(
   ".modal__input_type_description"
@@ -46,39 +47,47 @@ const inputDescription = document.querySelector(
 const inputTitle = document.querySelector(".modal__input_type_title");
 const inputImageLink = document.querySelector(".modal__input_type_image-link");
 
-editProfileButton.addEventListener("click", function () {
-  inputName.value = profileTitle.textContent;
-  inputDescription.value = profileSubtitle.textContent;
-  editModal.classList.add("modal_opened");
-});
-addCardProfileButton.addEventListener("click", function () {
-  addModal.classList.add("modal_opened");
-});
-
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+editProfileButton.addEventListener("click", () => {
+  inputName.value = profileTitle.textContent;
+  inputDescription.value = profileSubtitle.textContent;
+  openModal(editProfilePopup);
+});
+addCardProfileButton.addEventListener("click", () => {
+  openModal(addProfilePopup);
+});
+
 closeEditModalButton.addEventListener("click", () => {
-  closeModal(editModal);
+  closeModal(editProfilePopup);
 });
 closeAddModalButton.addEventListener("click", () => {
-  closeModal(addModal);
+  closeModal(addProfilePopup);
+  profileAddForm.reset();
+});
+closeImageModalButton.addEventListener("click", () => {
+  closeModal(imageModalPopup);
 });
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = inputName.value;
   profileSubtitle.textContent = inputDescription.value;
-  closeModal(editModal);
+  closeModal(editProfilePopup);
 }
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const name = inputTitle.value;
   const link = inputImageLink.value;
   const cardElement = getCardElement({ name, link });
-  cardList.append(cardElement);
-  closeModal(addModal);
+  cardList.prepend(cardElement);
+  closeModal(addProfilePopup);
+  profileAddForm.reset();
 }
 profileEditForm.addEventListener("submit", handleEditFormSubmit);
 profileAddForm.addEventListener("submit", handleAddFormSubmit);
@@ -100,17 +109,15 @@ function getCardElement(data) {
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-  cardImage.addEventListener("click", function () {
+  cardImage.addEventListener("click", () => {
     imagePicute.src = cardImage.src;
+    imagePicute.alt = cardImage.alt;
     imageTitle.textContent = cardTitle.textContent;
-    imageModal.classList.add("modal_opened");
-  });
-  closeImageModalButton.addEventListener("click", () => {
-    closeModal(imageModal);
+    openModal(imageModalPopup);
   });
 
   cardImage.src = data.link;
-  cardImage.alt = data.name;
+  cardImage.alt = `Photo of ${data.name}`;
   cardTitle.textContent = data.name;
   return cardElement;
 }
