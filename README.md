@@ -16,6 +16,8 @@
 - Deleting a card
 - Opening the picture modal
 - Smooth modal opening and closing
+- Form Validation
+- Closing the Popup by Clicking on the Overlay and Pressing Esc
 
 **Intro**
 
@@ -96,6 +98,18 @@ Once a user clicks on a picture, the modal box with that picture opens. When the
 **Smooth modal opening and closing**
 
 Making the modal box look smooth when opening and closing. When being opened, all the modal boxes smoothly appear out from transparency, and when being closed, they smoothly become completely transparent again.
+
+**Form Validation**
+
+Validating the "Edit Profile" Form and the "New Place" Form
+
+If a field of the "Edit profile" form doesn't pass the validation, a red error message should be displayed underneath it.
+
+If any field doesn't pass validation, the "Save" button should be inactive. If both fields pass validation, then they should be active. Use the colors from the design for the inactive buttons.
+
+**Closing the Popup by Clicking on the Overlay and Pressing Esc**
+
+Code a feature that allows the users to close the popup by clicking on the overlay, i.e. anywhere outside the popup's borders. And all so closing the popup by Pressing on Esc.
 
 ### GitHub Pages link
 

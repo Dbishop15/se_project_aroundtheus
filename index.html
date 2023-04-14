@@ -61,22 +61,35 @@
             ></button>
             <h2 class="modal__title">Edit profile</h2>
 
-            <form class="modal__form" id="edit-form">
+            <form class="modal__form" id="edit-form" novalidate>
               <input
                 class="modal__input modal__input_type_name"
+                id="name"
                 type="text"
                 name="name"
+                minlength="2"
+                maxlength="40"
                 placeholder="Name"
                 required
               />
+              <span class="modal__error" id="name-error"></span>
               <input
                 class="modal__input modal__input_type_description"
+                id="description"
                 type="text"
                 name="description"
+                minlength="2"
+                maxlength="200"
                 placeholder="About me"
                 required
               />
-              <button class="modal__submit" type="submit">Save</button>
+              <span class="modal__error" id="description-error"></span>
+              <button
+                class="modal__submit modal__submit_disabled"
+                type="submit"
+              >
+                Save
+              </button>
             </form>
           </div>
         </section>
@@ -88,23 +101,33 @@
               type="button"
             ></button>
             <h2 class="modal__title">New place</h2>
-
-            <form class="modal__form" id="add-form">
+            <form class="modal__form" id="add-form" novalidate>
               <input
                 class="modal__input modal__input_type_title"
+                id="title"
                 type="text"
                 name="title"
+                minlength="1"
+                maxlength="30"
                 placeholder="Title"
                 required
               />
+              <span class="modal__error" id="title-error"></span>
               <input
+                id="link"
                 class="modal__input modal__input_type_image-link"
                 type="url"
                 name="image link"
                 placeholder="Image link"
                 required
               />
-              <button class="modal__submit" type="submit">Create</button>
+              <span class="modal__error" id="link-error"></span>
+              <button
+                class="modal__submit modal__submit_disabled"
+                type="submit"
+              >
+                Create
+              </button>
             </form>
           </div>
         </section>
@@ -154,5 +177,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
   </body>
 </html>
