@@ -36,7 +36,7 @@ const closeEditModalButton = editProfilePopup.querySelector("#close-modal");
 const closeAddModalButton = addProfilePopup.querySelector("#close-add-modal");
 const closeImageModalButton =
   imageModalPopup.querySelector("#close-image-modal");
-const submitButton = addProfilePopup.querySelector(".modal__submit");
+const cardFormSubmitButton = addProfilePopup.querySelector(".modal__submit");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const imagePicute = document.querySelector(".modal__image");
@@ -69,8 +69,7 @@ function handleCloseWithEscape(evt) {
 
 function closeOnClickOverlay(evt) {
   if (evt.target.classList.contains("modal_opened")) {
-    const activeModal = document.querySelector(".modal_opened");
-    closeModal(activeModal);
+    closeModal(evt.target);
   }
 }
 function fillProfileForm() {
@@ -104,16 +103,15 @@ function handleEditFormSubmit(evt) {
 }
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
+  const { inputSelector } = options;
   const name = inputTitle.value;
   const link = inputImageLink.value;
-  const modalInputs = Array.from(
-    addProfilePopup.querySelectorAll(".modal__input")
-  );
+  const modalInputs = [...addProfilePopup.querySelectorAll(inputSelector)];
   const cardElement = getCardElement({ name, link });
   cardList.prepend(cardElement);
   closeModal(addProfilePopup);
   profileAddForm.reset();
-  toggleButtonState(modalInputs, submitButton, options);
+  toggleButtonState(modalInputs, cardFormSubmitButton, options);
 }
 
 profileEditForm.addEventListener("submit", handleEditFormSubmit);
