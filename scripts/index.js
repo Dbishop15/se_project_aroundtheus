@@ -36,6 +36,7 @@ const closeEditModalButton = editProfilePopup.querySelector("#close-modal");
 const closeAddModalButton = addProfilePopup.querySelector("#close-add-modal");
 const closeImageModalButton =
   imageModalPopup.querySelector("#close-image-modal");
+const submitButton = addProfilePopup.querySelector(".modal__submit");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const imagePicute = document.querySelector(".modal__image");
@@ -50,14 +51,16 @@ const ESC_CODE = 27;
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", keyHandler);
+  document.addEventListener("keydown", handleCloseWithEscape);
+  document.addEventListener("mousedown", closeOnClickOverlay);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", keyHandler);
+  document.removeEventListener("keydown", handleCloseWithEscape);
+  document.removeEventListener("mousedown", closeOnClickOverlay);
 }
 
-function keyHandler(evt) {
+function handleCloseWithEscape(evt) {
   if (evt.which === ESC_CODE) {
     const activeModal = document.querySelector(".modal_opened");
     closeModal(activeModal);
@@ -65,21 +68,18 @@ function keyHandler(evt) {
 }
 
 function closeOnClickOverlay(evt) {
-  if (
-    evt.target === evt.currentTarget ||
-    evt.target.classList.contains("modal__close")
-  ) {
-    closeModal(evt.target);
+  if (evt.target.classList.contains("modal_opened")) {
+    const activeModal = document.querySelector(".modal_opened");
+    closeModal(activeModal);
   }
 }
-
-editProfilePopup.addEventListener("mousedown", closeOnClickOverlay);
-addProfilePopup.addEventListener("mousedown", closeOnClickOverlay);
-imageModalPopup.addEventListener("mousedown", closeOnClickOverlay);
-
-editProfileButton.addEventListener("click", () => {
+function fillProfileForm() {
   inputName.value = profileTitle.textContent;
   inputDescription.value = profileSubtitle.textContent;
+}
+
+editProfileButton.addEventListener("click", () => {
+  fillProfileForm();
   openModal(editProfilePopup);
 });
 addCardProfileButton.addEventListener("click", () => {
@@ -88,12 +88,9 @@ addCardProfileButton.addEventListener("click", () => {
 
 closeEditModalButton.addEventListener("click", () => {
   closeModal(editProfilePopup);
-  resetForm(form);
 });
 closeAddModalButton.addEventListener("click", () => {
   closeModal(addProfilePopup);
-  profileAddForm.reset();
-  resetForm(form);
 });
 closeImageModalButton.addEventListener("click", () => {
   closeModal(imageModalPopup);
@@ -109,10 +106,14 @@ function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const name = inputTitle.value;
   const link = inputImageLink.value;
+  const modalInputs = Array.from(
+    addProfilePopup.querySelectorAll(".modal__input")
+  );
   const cardElement = getCardElement({ name, link });
   cardList.prepend(cardElement);
   closeModal(addProfilePopup);
   profileAddForm.reset();
+  toggleButtonState(modalInputs, submitButton, options);
 }
 
 profileEditForm.addEventListener("submit", handleEditFormSubmit);

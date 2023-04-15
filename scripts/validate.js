@@ -22,9 +22,10 @@ function hideInputError(
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
-    return showInputError(formElement, inputElement, options);
+    showInputError(formElement, inputElement, options);
+  } else {
+    hideInputError(formElement, inputElement, options);
   }
-  hideInputError(formElement, inputElement, options);
 }
 function hasInvalidInput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
@@ -38,10 +39,10 @@ function toggleButtonState(
   if (hasInvalidInput(inputElements)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
-    return;
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListeners(formElement, options) {
@@ -54,6 +55,7 @@ function setEventListeners(formElement, options) {
       toggleButtonState(inputElements, submitButton, options);
     });
   });
+  toggleButtonState(inputElements, submitButton, options);
 }
 
 function enableValidation(options) {
@@ -65,8 +67,7 @@ function enableValidation(options) {
     setEventListeners(formElement, options);
   });
 }
-
-const config = {
+const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit",
@@ -74,4 +75,4 @@ const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-enableValidation(config);
+enableValidation(options);

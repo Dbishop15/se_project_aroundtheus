@@ -108,10 +108,14 @@
   opacity: 0.8;
   transition: all 0.3s ease-out;
 }
+.modal__submit_disabled:hover {
+  opacity: 1;
+}
 .modal__submit_disabled {
   border-color: rgba(0, 0, 0, 0.2);
   background-color: #ededed;
   color: rgba(0, 0, 0, 0.2);
+  cursor: default;
 }
 .modal__container-image {
   padding: 0px;
