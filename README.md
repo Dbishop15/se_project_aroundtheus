@@ -18,6 +18,8 @@
 - Smooth modal opening and closing
 - Form Validation
 - Closing the Popup by Clicking on the Overlay and Pressing Esc
+- Updating the project’s file structure
+- Creating the Card and FormValidator classes
 
 **Intro**
 
@@ -110,6 +112,24 @@ If any field doesn't pass validation, the "Save" button should be inactive. If b
 **Closing the Popup by Clicking on the Overlay and Pressing Esc**
 
 Code a feature that allows the users to close the popup by clicking on the overlay, i.e. anywhere outside the popup's borders. And all so closing the popup by Pressing on Esc.
+
+**Updating the project’s file structure**
+
+se_project_aroundtheus/
+components/
+Card.js
+FormValidator.js
+pages/
+index.js
+index.css
+utils/
+utils.js
+...everything else
+
+**Creating the Card and FormValidator classes**
+
+Create the Card class, which creates a card with text and an image link, as per the requirements
+Create the FormValidator class, which sets settings for validating form fields according to the requirements:
 
 ### GitHub Pages link
 
