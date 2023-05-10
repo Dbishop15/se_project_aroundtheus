@@ -22,8 +22,6 @@ class Card {
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
-    this._cardImage = this._cardElement.querySelector(".card__image");
-
     this._likeButton.addEventListener("click", () => {
       this._handleLikeIcon();
     });
@@ -52,7 +50,6 @@ class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._cardTitle.textContent = this._name;
-    this._cardImage.alt = `Photo of ${this._name}`;
 
     this._setEventListeners();
     return this._cardElement;

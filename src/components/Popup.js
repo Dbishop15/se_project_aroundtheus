@@ -15,8 +15,7 @@ class Popup {
   _handleCloseWithEscape(evt) {
     const ESC_CODE = 27;
     if (evt.which === ESC_CODE) {
-      const activeModal = document.querySelector(".modal_opened");
-      this.close(activeModal);
+      this.close();
     }
   }
   _handleCloseOnClickOverlay(evt) {

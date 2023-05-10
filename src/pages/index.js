@@ -5,72 +5,21 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
+import {
+  initialCards,
+  editProfileButton,
+  addCardProfileButton,
+  cardList,
+  setting,
+  editFormElement,
+  addFormElement,
+  inputName,
+  inputDescription,
+} from "../utils/constants.js";
 
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-const editProfileButton = document.querySelector("#edit-profile");
-const addCardProfileButton = document.querySelector(".profile__add-button");
-const editProfilePopup = document.querySelector("#edit-modal");
-const addProfilePopup = document.querySelector("#add-modal");
-const imageModalPopup = document.querySelector("#image-modal");
-const profileEditForm = document.querySelector("#edit-form");
-const profileAddForm = document.querySelector("#add-form");
-const closeEditModalButton = editProfilePopup.querySelector("#close-modal");
-const closeAddModalButton = addProfilePopup.querySelector("#close-add-modal");
-const closeImageModalButton =
-  imageModalPopup.querySelector("#close-image-modal");
-const cardFormSubmitButton = addProfilePopup.querySelector(".modal__submit");
-const profileTitle = document.querySelector(".profile__title");
-const profileSubtitle = document.querySelector(".profile__subtitle");
-const imagePicute = document.querySelector(".modal__image");
-const imageTitle = document.querySelector(".modal__image-title");
-const inputName = document.querySelector(".modal__input_type_name");
-const inputDescription = document.querySelector(
-  ".modal__input_type_description"
-);
-const inputTitle = document.querySelector(".modal__input_type_title");
-const inputImageLink = document.querySelector(".modal__input_type_image-link");
-const cardList = document.querySelector(".gallery__cards");
-
-const setting = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit",
-  inactiveButtonClass: "modal__submit_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-  cardSectionClass: ".gallery__cards",
-};
-const editFormElement = editProfilePopup.querySelector("#edit-form");
 const editFormValidator = new FormValidator(setting, editFormElement);
 editFormValidator.enableValidation();
 
-const addFormElement = addProfilePopup.querySelector("#add-form");
 const addFormValidator = new FormValidator(setting, addFormElement);
 addFormValidator.enableValidation();
 
@@ -97,7 +46,8 @@ function handleAddFormSubmit(formValues) {
   renderCard(formValues);
   newCardPopup.close();
 }
-function renderCard(data) {
+//function creating a card to DOM
+function createCard(data) {
   const card = new Card(
     {
       name: data.name,
@@ -106,7 +56,12 @@ function renderCard(data) {
     "#card-templete",
     handleImageClick
   );
-  section.addItem(card.getView(data));
+  return card.getView();
+}
+//function adding a card to DOM
+function renderCard(data) {
+  const card = createCard(data);
+  section.addItem(card);
 }
 
 function handleImageClick(cardImage, cardTitle) {
@@ -133,15 +88,15 @@ function handleEditProfileForm() {
   const currentUser = userInfo.getUserInfo();
   inputName.value = currentUser.userName;
   inputDescription.value = currentUser.userJob;
-  editFormValidator.disableButton();
   editModalPopup.open();
+  editFormValidator.resetValidation();
 }
 const userInfo = new UserInfo({
   userName: ".profile__title",
   userJob: ".profile__subtitle",
 });
 function handleAddCardProfileForm() {
-  addFormValidator.disableButton();
   newCardPopup.open();
+  addFormValidator.resetValidation();
 }
 addCardProfileButton.addEventListener("click", handleAddCardProfileForm);
