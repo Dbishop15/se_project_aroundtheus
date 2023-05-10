@@ -20,6 +20,9 @@
 - Closing the Popup by Clicking on the Overlay and Pressing Esc
 - Updating the project’s file structure
 - Creating the Card and FormValidator classes
+- Creating the Section, Popup, PopupWithImage, PopupWithForm and UserInfo classes
+- Updating the .gitignore file
+- Setting up Webpack bundling and building
 
 **Intro**
 
@@ -129,7 +132,22 @@ utils.js
 **Creating the Card and FormValidator classes**
 
 Create the Card class, which creates a card with text and an image link, as per the requirements
-Create the FormValidator class, which sets settings for validating form fields according to the requirements:
+Create the FormValidator class, which sets settings for validating form fields according to the requirements.
+
+**Creating the Section, Popup, PopupWithImage, PopupWithForm and UserInfo classes**
+
+Add the Section, Popup, PopupWithForm, PopupWithImages, and UserInfo classes to your project. Each class should perform one specific task. All logic related to a specific task must be encapsulated in its respective class.
+
+**Updating the .gitignore file**
+
+we don't want Git to track some files after initialiing NPM and setting up Webpack, so we update .gitignore file to contain the following contents:
+.DS_Store
+node_modules/
+dist/
+
+**Setting up Webpack bundling and building**
+
+Installing packages with npm install and making sure to install the specific versions indicated in the project by use the dependencies listed in the package.json file that provided.
 
 ### GitHub Pages link
 
