@@ -17,7 +17,7 @@ import {
   inputName,
   inputDescription,
 } from "../utils/constants.js";
-import Api from "../components/Api.js";
+import Api from "../utils/Api.js";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -41,64 +41,83 @@ addFormValidator.enableValidation();
 const editModalAvatarPopup = new PopupWithForm({
   popupSelector: "#edit-avatar-modal",
   handleFormSubmit: handleEditFormAvatarSubmit,
+  buttonText: "Saving",
+  loadingButtonText: "Saving...",
 });
 editModalAvatarPopup.setEventListeners();
 
 const editModalPopup = new PopupWithForm({
   popupSelector: "#edit-modal",
   handleFormSubmit: handleEditFormSubmit,
+  buttonText: "Save",
+  loadingButtonText: "Saving...",
 });
 editModalPopup.setEventListeners();
 
 const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: handleAddFormSubmit,
+  buttonText: "Create",
+  loadingButtonText: "Creating...",
 });
 newCardPopup.setEventListeners();
 
-const imagePopup = new PopupWithImage("#image-modal");
+const imagePopup = new PopupWithImage({ popupSelector: "#image-modal" });
 imagePopup.setEventListeners();
 
-const deleteCardConfirmPopup = new PopupWithConfirmation("#delete-card-modal");
+const deleteCardConfirmPopup = new PopupWithConfirmation({
+  popupSelector: "#delete-card-modal",
+  buttonText: "Delete",
+  loadingButtonText: "Deleting...",
+});
 deleteCardConfirmPopup.setEventListeners();
 
 function handleEditFormAvatarSubmit(formValues) {
-  editModalAvatarPopup.renderSaveLoading(true);
+  editModalAvatarPopup.renderLoading(true);
   api
     .setUserAvatar({ avatar: formValues.avatar })
     .then((data) => {
       userInfo.setAvatarInfo({ avatar: data.avatar });
+      editModalAvatarPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
     })
     .finally(() => {
-      editModalAvatarPopup.renderSaveLoading(false, "Save");
+      editModalAvatarPopup.renderLoading(false, "Save");
     });
-  editModalAvatarPopup.close();
 }
 
 function handleEditFormSubmit(formValues) {
-  editModalPopup.renderSaveLoading(true);
+  editModalPopup.renderLoading(true);
   api
     .setUserInfo({ name: formValues.name, about: formValues.job })
     .then((data) => {
       userInfo.setUserInfo({ name: data.name, job: data.about });
+      editModalPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
     })
     .finally(() => {
-      editModalPopup.renderSaveLoading(false, "Save");
+      editModalPopup.renderLoading(false, "Save");
     });
-  editModalPopup.close();
 }
 
 function handleAddFormSubmit(formValues) {
-  newCardPopup.renderCreateLoading(true);
+  newCardPopup.renderLoading(true);
   api
     .addCard(formValues)
     .then((cardData) => {
       section.addItem(createCard(cardData));
+      newCardPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
     })
     .finally(() => {
-      newCardPopup.renderCreateLoading(false, "Create");
+      newCardPopup.renderLoading(false, "Create");
     });
-  newCardPopup.close();
 }
 
 editAvatarProfileButton.addEventListener("click", handleEditAvatarProfileForm);
@@ -106,8 +125,6 @@ editProfileButton.addEventListener("click", handleEditProfileForm);
 addCardProfileButton.addEventListener("click", handleAddCardProfileForm);
 
 function handleEditAvatarProfileForm() {
-  const currentUser = userInfo.getAvatarInfo();
-  // inputImageLink.value = currentUser.userAvatar;
   editModalAvatarPopup.open();
   editFormAvatarValidator.resetValidation();
 }
@@ -133,24 +150,29 @@ const userInfo = new UserInfo({
   userAvatar: ".profile__image",
 });
 
-api.getApiInfo().then(([userData, cards]) => {
-  userId = userData._id;
-  userInfo.setUserInfo({
-    name: userData.name,
-    job: userData.about,
-  });
-  userInfo.setAvatarInfo({ avatar: userData.avatar });
-  section = new Section(
-    {
-      items: cards,
-      renderer: (cardData) => {
-        section.addItem(createCard(cardData));
+api
+  .getApiInfo()
+  .then(([userData, cards]) => {
+    userId = userData._id;
+    userInfo.setUserInfo({
+      name: userData.name,
+      job: userData.about,
+    });
+    userInfo.setAvatarInfo({ avatar: userData.avatar });
+    section = new Section(
+      {
+        items: cards,
+        renderer: (cardData) => {
+          section.addItem(createCard(cardData));
+        },
       },
-    },
-    setting.cardSectionClass
-  );
-  section.renderItems();
-});
+      setting.cardSectionClass
+    );
+    section.renderItems();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 function createCard(data) {
   const card = new Card(
@@ -169,11 +191,14 @@ function createCard(data) {
           .removeCard(cardId)
           .then(() => {
             card._handleDeleteIcon();
+            deleteCardConfirmPopup.close();
+          })
+          .catch((err) => {
+            console.error(err);
           })
           .finally(() => {
             deleteCardConfirmPopup.renderLoading(false, "Yes");
           });
-        deleteCardConfirmPopup.close();
       });
     },
     (cardId) => {

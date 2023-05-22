@@ -1,27 +1,24 @@
 import Popup from "./Popup.js";
 class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {
+  constructor({
+    popupSelector,
+    handleFormSubmit,
+    buttonText,
+    loadingButtonText,
+  }) {
     super({ popupSelector });
     this._pupupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
     this._inputList = [...this._popupElement.querySelectorAll(".modal__input")];
     this._submitButton = this._popupElement.querySelector(".modal__submit");
-    this._submitCardButton = this._popupElement.querySelector(
-      "#add-modal-submit-btn"
-    );
+    this._buttonText = buttonText;
+    this._loadingButtonText = loadingButtonText;
   }
-  renderSaveLoading(isLoading, text) {
+  renderLoading(isLoading) {
     if (isLoading) {
-      this._submitButton.textContent = "Saving...";
+      this._submitButton.textContent = this._loadingButtonText;
     } else {
-      this._submitButton.textContent = text;
-    }
-  }
-  renderCreateLoading(isLoading, text) {
-    if (isLoading) {
-      this._submitCardButton.textContent = "Creating..";
-    } else {
-      this._submitCardButton.textContent = text;
+      this._submitButton.textContent = this._buttonText;
     }
   }
   _getInputValues() {
