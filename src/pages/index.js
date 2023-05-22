@@ -203,13 +203,23 @@ function createCard(data) {
     },
     (cardId) => {
       if (card.isLiked()) {
-        api.removeLike(cardId).then((data) => {
-          card.setLikes(data.likes);
-        });
+        api
+          .removeLike(cardId)
+          .then((data) => {
+            card.setLikes(data.likes);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       } else {
-        api.addLike(cardId).then((data) => {
-          card.setLikes(data.likes);
-        });
+        api
+          .addLike(cardId)
+          .then((data) => {
+            card.setLikes(data.likes);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       }
     }
   );
