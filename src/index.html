@@ -33,6 +33,13 @@
               src="<%=require('./images/jacques-cousteau.jpg')%>"
               alt=" image of Jacques Cousteau"
             />
+            <div class="profile__image-edit">
+              <button
+                class="profile__image-edit-btn"
+                id="edit-avatar-profile"
+                aria-label="edit-avatar"
+              ></button>
+            </div>
             <div class="profile__info">
               <div class="profile__title-info">
                 <h1 class="profile__title">Jacques Cousteau</h1>
@@ -52,6 +59,30 @@
             aria-label="Add"
           ></button>
         </section>
+        <section class="modal" id="edit-avatar-modal">
+          <div class="modal__container">
+            <button
+              class="modal__close"
+              id="close-modal"
+              type="button"
+            ></button>
+            <h2 class="modal__title">Change profile picture</h2>
+
+            <form class="modal__form" id="edit-avatar-form" novalidate>
+              <input
+                id="avatar"
+                class="modal__input modal__input_type_image-link"
+                type="url"
+                name="avatar"
+                placeholder="Image link"
+                required
+              />
+              <span class="modal__error" id="avatar-error"></span>
+              <button class="modal__submit" type="submit">Save</button>
+            </form>
+          </div>
+        </section>
+
         <section class="modal" id="edit-modal">
           <div class="modal__container">
             <button
@@ -117,7 +148,28 @@
                 required
               />
               <span class="modal__error" id="link-error"></span>
-              <button class="modal__submit" type="submit">Create</button>
+              <button
+                class="modal__submit"
+                id="add-modal-submit-btn"
+                type="submit"
+              >
+                Create
+              </button>
+            </form>
+          </div>
+        </section>
+        <section class="modal" id="delete-card-modal">
+          <div class="modal__container">
+            <button
+              class="modal__close"
+              id="close-delete-card-modal"
+              type="button"
+            ></button>
+            <h2 class="modal__title">Are you sure?</h2>
+            <form class="modal__form" id="delete-card-form" novalidate>
+              <button class="modal__submit" id="delete-card-btn" type="submit">
+                Yes
+              </button>
             </form>
           </div>
         </section>
@@ -154,11 +206,14 @@
         ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button
-            class="card__like-button"
-            type="button"
-            aria-label="Like"
-          ></button>
+          <div class="card__like-group">
+            <button
+              class="card__like-button"
+              type="button"
+              aria-label="Like"
+            ></button>
+            <span class="card__like-count"></span>
+          </div>
         </div>
       </li>
     </template>

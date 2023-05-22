@@ -7,6 +7,7 @@
   padding: 0;
 }
 .profile__content {
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -14,7 +15,40 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  /* z-index: 1; */
 }
+.profile__image-edit {
+  display: flex;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0);
+}
+.profile__image-edit:hover {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-out;
+  z-index: 2;
+}
+.profile__image-edit-btn {
+  margin: auto;
+  width: 26px;
+  height: 26px;
+  background: url(../images/pen.svg) center no-repeat;
+  opacity: 0;
+  background-color: transparent;
+  background-size: 110%;
+  border: none;
+  cursor: pointer;
+}
+.profile__image-edit-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+  border: none;
+  z-index: 2;
+}
+
 .profile__info {
   max-width: 415px;
   margin-left: 30px;
@@ -101,6 +135,9 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 36px;
+  }
+  .profile__image-edit {
+    top: 0;
   }
   .profile__info {
     margin-top: 26.25px;

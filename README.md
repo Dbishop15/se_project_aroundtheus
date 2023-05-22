@@ -23,6 +23,7 @@
 - Creating the Section, Popup, PopupWithImage, PopupWithForm and UserInfo classes
 - Updating the .gitignore file
 - Setting up Webpack bundling and building
+- Api and connecting website to the server.
 
 **Intro**
 
@@ -148,6 +149,9 @@ dist/
 **Setting up Webpack bundling and building**
 
 Installing packages with npm install and making sure to install the specific versions indicated in the project by use the dependencies listed in the package.json file that provided.
+
+**Api and connecting website to the server**
+Connecting "Around the U.S." website project to the server.
 
 ### GitHub Pages link
 
